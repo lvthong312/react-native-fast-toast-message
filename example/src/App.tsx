@@ -1,20 +1,80 @@
-import { Text, View, StyleSheet } from 'react-native';
-import { multiply } from 'react-native-fast-toast';
-
-const result = multiply(3, 7);
-
-export default function App() {
+import { useRef } from 'react';
+import { Button, Text, View } from 'react-native';
+import {
+  ToastProvider,
+  useToast,
+  Toast,
+  ToastHandle
+} from 'react-native-fast-toast-message';
+function Home() {
+  const { showToast } = useToast<ToastHandle>();
+  const toastRef = useRef(null);
   return (
-    <View style={styles.container}>
-      <Text>Result: {result}</Text>
+    <View
+      style={{
+        flex: 1,
+        justifyContent: 'center',
+        gap: 16,
+        alignItems: 'center',
+      }}
+    >
+      <Button
+        title="Top Toast"
+        onPress={() =>
+          showToast({
+            message: 'This is top toast 👆',
+            type: 'info',
+            position: 'top',
+          })
+        }
+      />
+      <Button
+        title="Center Toast"
+        onPress={() =>
+          showToast({
+            message: (
+              <View>
+                <Text>aasads</Text>
+              </View>
+            ),
+            type: 'success',
+            position: 'center',
+          })
+        }
+      />
+      <Button
+        title="Bottom Toast"
+        onPress={() =>
+          showToast({
+            message: 'Bottom toast 👇',
+            type: 'error',
+            position: 'bottom',
+          })
+        }
+      />
+      <Button
+        title="Ref Toast"
+        onPress={() =>
+          toastRef?.current?.showToast({
+            message: (
+              <View>
+                <Text>aasads</Text>
+              </View>
+            ),
+            type: 'success',
+            position: 'bottom',
+          })
+        }
+      />
+      <Toast ref={toastRef} />
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default function App() {
+  return (
+    <ToastProvider>
+      <Home />
+    </ToastProvider>
+  );
+}
