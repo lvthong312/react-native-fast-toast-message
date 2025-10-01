@@ -1,6 +1,6 @@
 {
   "name": "react-native-fast-toast-message",
-  "version": "0.8.0",
+  "version": "0.10.0",
   "description": "Support for Toast",
   "main": "./lib/module/index.js",
   "types": "./lib/typescript/src/index.d.ts",

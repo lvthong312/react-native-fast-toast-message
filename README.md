@@ -1,4 +1,9 @@
-# react-native-fast-toast
+# react-native-fast-toast-message
+<p align="center">
+  <img src="https://img.shields.io/npm/v/react-native-fast-toast-message?color=green" alt="npm version" />
+  <img src="https://img.shields.io/npm/dm/react-native-fast-toast-message" alt="npm downloads" />
+  <img src="https://img.shields.io/badge/react--native-0.70+-blue" alt="react-native" />
+</p>
 
 Support for Toast
 
@@ -6,7 +11,7 @@ Support for Toast
 
 
 ```sh
-npm install react-native-fast-toast
+npm install react-native-fast-toast-message
 ```
 
 
